@@ -32,7 +32,7 @@ int sum(int array[n + 1], int n)
     }
     
     int temp = 0;
-    for (int i = 0; i < n + 1; i++)
+    for (int i = 0; i < n; i++)
     {
         temp ^= i;
     }

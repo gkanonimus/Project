@@ -1,8 +1,7 @@
 #include <stdio.h>
 int n;                                  //array size without duplicate
 void print(int array[n], int n);
-int xor(int array[n], int n);
-
+int second(int array[n], int n);
 
 int main()
 {
@@ -21,23 +20,23 @@ int main()
     array[n] = dupl;
     
     print(array, n);
-    printf("%d", xor(array, n));
+    printf("%d", second(array, n));
 }
 
-int xor(int array[n], int n)
+int second(int array[n], int n)
 {
-    for (int i = 1; i <= n; i++)
-    {
-        array[0] ^= array[i];
-    }
-    
-    int temp = 0;
+    int secarr[n - 1];
     for (int i = 0; i < n; i++)
     {
-        temp ^= i;
+        secarr[i] = -1;
     }
-    
-    return (array[0] ^ temp);
+    for (int i = 1; i <= n; i++)
+    {
+        int ind = array[i];
+        secarr[ind]++;
+        if (secarr[ind])
+            return array[i];
+    }
 }
 
 void print(int array[n], int n)
